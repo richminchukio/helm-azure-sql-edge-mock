@@ -1,0 +1,17 @@
+imageKey: mcr.microsoft.com/azure-sql-edge:latest
+
+env:
+- name: ACCEPT_EULA
+  value: "Y"
+- name: MSSQL_SA_PASSWORD
+  value: asdfASDF1234!@#$
+- name: MSSQL_PID
+  value: Premium
+- name: MSSQL_PACKAGE
+  value: /var/tmp/mssql/init.dacpac
+
+configmap:
+  enabled: true
+  data:
+    init.dacpac: |
+      -- your dacpac file contents here

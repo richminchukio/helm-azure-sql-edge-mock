@@ -1,0 +1,8 @@
+apiVersion: v2
+appVersion: latest
+description: A Helm chart to create an azure sql edge db and dacpac deploy to it.
+name: azure-sql-edge-mock
+sources:
+- https://github.com/richminchukio/helm-aks-appgw-fe
+type: application
+version: 1.0.0-rc1

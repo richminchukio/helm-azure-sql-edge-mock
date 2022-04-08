@@ -1,0 +1,8 @@
+{{- if .Values.configmap.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "azure-sql-edge-mock.fullname" . }}
+binaryData:
+  init.dacpac: {{ index .Values.configmap.data "init.dacpac" | b64enc }}
+{{- end }}
