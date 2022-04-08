@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "azure-sql-edge-mock.fullname" . }}
+spec:
+  serviceName: {{ include "azure-sql-edge-mock.fullname" . }}
+  selector:
+    matchLabels:
+      app: {{ include "azure-sql-edge-mock.fullname" . }}
+  replicas: 1
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        app: {{ include "azure-sql-edge-mock.fullname" . }}
+    spec:
+      volumes:
+      {{- if .Values.configmap.enabled }}
+      - name: configmap
+        configMap:
+          name: {{ include "azure-sql-edge-mock.fullname" . }}
+      {{- end }}
+      containers:
+      - name: {{ include "azure-sql-edge-mock.fullname" . }}
+        image: "{{.Values.imageKey}}"
+        ports:
+        - containerPort: 1433
+        env:
+          {{- toYaml .Values.env | nindent 10 }}
+        volumeMounts:
+        {{- if .Values.configmap.enabled }}
+        - name: configmap
+          mountPath: /var/tmp/mssql
+        {{- end }}
