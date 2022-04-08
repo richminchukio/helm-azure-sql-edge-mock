@@ -1,6 +1,19 @@
 apiVersion: v1
 entries:
   azure-sql-edge-mock:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-04-07T23:05:11.974324-05:00"
+    description: A Helm chart to create an azure sql edge db and dacpac deploy to
+      it.
+    digest: dd2437e343d36e8bc5875c1507e9a8e302c365e4fbc0ee0529c9668769d52bed
+    name: azure-sql-edge-mock
+    sources:
+    - https://github.com/richminchukio/helm-aks-appgw-fe
+    type: application
+    urls:
+    - https://github.com/richminchukio/helm-azure-sql-edge-mock/archive/refs/tags/azure-sql-edge-mock-1.0.0.tar.gz
+    version: 1.0.0
   - apiVersion: v1
     appVersion: latest
     created: "2022-04-07T22:20:53.915972-05:00"
@@ -14,4 +27,4 @@ entries:
     urls:
     - https://github.com/richminchukio/helm-azure-sql-edge-mock/archive/refs/tags/azure-sql-edge-mock-1.0.0-rc1.tar.gz
     version: 1.0.0-rc1
-generated: "2022-04-07T22:20:53.914004-05:00"
+generated: "2022-04-07T23:05:11.97341-05:00"
